@@ -6,6 +6,5 @@ export class Evento{
     dtEvento: Date;
     estoque_ingresso: number;
     valor: number;
-    imagemEncoded?: string;
     casa: Casa ;
 }

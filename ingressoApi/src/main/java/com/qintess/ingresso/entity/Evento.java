@@ -53,7 +53,7 @@ public class Evento {
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	@JoinColumn(name = "casaDeShow_id")
-	private CasaDeShow casaDeShow;
+	private CasaDeShow casa;
 	
 	@OneToMany(mappedBy = "evento")
 	private List <Compra> compras;
@@ -66,7 +66,7 @@ public class Evento {
 	public String toString() {
 		return "Evento [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", dtEvento=" + dtEvento
 				+ ", qtdIngresso=" + estoque_ingresso + ", valor=" + valor + ", imagemProd=" + Arrays.toString(imagemProd)
-				+ ", imagemEncoded=" + imagemEncoded + ", casaDeShow=" + casaDeShow.getNome() + ", compras=" + compras + "]";
+				+ ", imagemEncoded=" + imagemEncoded + ", casaDeShow=" + casa.getNome() + ", compras=" + compras + "]";
 	}
 
 
@@ -120,12 +120,12 @@ public class Evento {
 	}
 
 	
-	public CasaDeShow getCasaDeShow() {
-		return casaDeShow;
+	public CasaDeShow getCasa() {
+		return casa;
 	}
 
-	public void setCasaDeShow(CasaDeShow casaDeShow) {
-		this.casaDeShow = casaDeShow;
+	public void setCasa(CasaDeShow casa) {
+		this.casa = casa;
 	}
 
 	public List<Compra> getCompras() {

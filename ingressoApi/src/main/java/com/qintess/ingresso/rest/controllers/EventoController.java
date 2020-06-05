@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,7 +46,7 @@ public class EventoController {
 	@PostMapping("/evento")
 	public List<Evento> save(@RequestBody Evento evento , CasaDeShow casaShow ) throws Exception {
 		
-		casaRepos.findByNome(evento.getCasaDeShow().getNome());
+		casaRepos.findByNome(evento.getCasa().getNome());
 			
 		eventoRepos.save(evento);
 
