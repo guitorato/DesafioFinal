@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-title>Excluir - Usuário</mat-card-title>
+    <hr />
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" [(ngModel)] = "cliente.nome" name="nome" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="CPF" [(ngModel)] = "cliente.cpf" name="cpf" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <span matPrefix>+55 &nbsp;</span>
+            <input type="tel" matInput placeholder="Telefone" [(ngModel)] = "cliente.telefone" 
+                name="telefone" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="E-MAIL" [(ngModel)] = "cliente.email" name="email" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" matInput placeholder="Senha" [(ngModel)] = "cliente.senha"
+                 name="senha" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="date" matInput placeholder="Data de Nascimento" 
+                    [(ngModel)] = "cliente.dtNascimento" name="dtNascimento" disabled>
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="deleteCliente()" color="warn">
+        Excluir
+    </button>
+    
+    <button mat-raised-button (click)="cancelCliente()">
+        Cancelar
+    </button>
+</mat-card>
+

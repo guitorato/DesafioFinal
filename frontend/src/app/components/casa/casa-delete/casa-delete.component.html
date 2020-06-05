@@ -1,0 +1,43 @@
+<mat-card>
+    <mat-card-title>Excluir - Casa de Show</mat-card-title>
+    <hr />
+    <form>
+        <mat-form-field class="column"> 
+            <input matInput placeholder="Nome" [value] = "casa.nome" name="nome" disabled>
+        </mat-form-field>
+        <mat-form-field class="column"> 
+            <input matInput placeholder="Capacidade" [value] = "casa.capacidade" name="capacidade" disabled>
+        </mat-form-field>
+        <mat-form-field class="column"> 
+            <input matInput placeholder="CEP" [value] = "casa.cep" name="cep" disabled>
+        </mat-form-field>
+        <mat-form-field class="column"> 
+            <input matInput placeholder="Endereço" [value] = "casa.logradouro" name="logradouro" disabled>
+        </mat-form-field>
+        <mat-form-field class="column1"> 
+            <input matInput placeholder="Número" [value] = "casa.numero" name="numero" disabled>
+        </mat-form-field>
+        <mat-form-field class="column1"> 
+            <input matInput placeholder="Complemento" [value] = "casa.complemento" name="complemento" disabled>
+        </mat-form-field>
+        <mat-form-field class="column1">
+            <input matInput placeholder="Bairro" [value] = "casa.bairro" name="bairro" disabled>
+        </mat-form-field>
+        <mat-form-field class="column1">
+            <input matInput placeholder="Cidade"  [value] = "casa.cidade" name="cidade" disabled>
+        </mat-form-field>
+        <mat-form-field class="column1">
+            <input matInput placeholder="Estado" [value] = "casa.uf" name="uf" disabled>
+        </mat-form-field>
+        <mat-form-field class="column"> 
+            <input matInput placeholder="Telefone" [value] = "casa.telefone" name="telefone" disabled>
+        </mat-form-field>
+    </form>
+
+<button mat-raised-button (click)="deleteCasa()" color="primary">
+    Excluir
+</button>
+
+<button mat-raised-button (click)="cancelCasa()">
+    Cancelar
+</button>

@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-title>Cadastro - Evento</mat-card-title>
+    <hr />
+    <form>
+        <mat-form-field class="column"> 
+            <input matInput placeholder="Nome" [(ngModel)] = "evento.nome" name="nome">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width column">
+            <mat-label>Descrição</mat-label>
+            <input matInput #message maxlength="256" placeholder="Descrição" 
+                    [(ngModel)] = "evento.descricao" name="descricao">
+            <mat-hint align="start"><strong>Descrição do evento</strong> </mat-hint>
+            <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field class="column1"> 
+            <input type="date" matInput placeholder="Data Evento" [(ngModel)] = "evento.dtEvento" name="dtEvento">
+        </mat-form-field>
+
+        <mat-form-field class="column1"> 
+            <input type="number" matInput placeholder="Valor" [(ngModel)] = "evento.valor" name="valor">
+        </mat-form-field>
+
+        <mat-form-field class="column1"> 
+            <input type="number" matInput placeholder="Qtd - Ingressos" 
+            [(ngModel)] = "evento.estoque_ingresso" name="estoque_ingresso">
+        </mat-form-field>
+       
+        <mat-form-field>
+            <mat-label>Casa de Show</mat-label>
+            <mat-select [(ngModel)]="evento.casa" [ngModelOptions]="{standalone: true}">
+              <mat-option *ngFor="let casa of casas" [(value)]="casa.id"  name="casa">
+                {{casa.nome}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+    </form>
+
+<button mat-raised-button (click)="createEvento()" color="primary">
+    Salvar
+</button>
+
+<button mat-raised-button (click)="cancelEvento()">
+    Cancelar
+</button>

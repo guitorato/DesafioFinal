@@ -1,0 +1,43 @@
+<mat-card>
+    <mat-card-title>Cadastro - Casa de Show</mat-card-title>
+    <hr />
+    <form>
+        <mat-form-field class="column"> 
+            <input matInput placeholder="Nome" [(ngModel)] = "casa.nome" name="nome">
+        </mat-form-field>
+        <mat-form-field class="column"> 
+            <input type="number" matInput placeholder="Capacidade" [(ngModel)] = "casa.capacidade" name="capacidade">
+        </mat-form-field>
+        <mat-form-field class="column"> 
+            <input matInput placeholder="CEP" [(ngModel)] = "casa.cep" name="cep">
+        </mat-form-field>
+        <mat-form-field class="column"> 
+            <input matInput placeholder="Endereço" [(ngModel)] = "casa.logradouro" name="logradouro">
+        </mat-form-field>
+        <mat-form-field class="column1"> 
+            <input matInput placeholder="Número" [(ngModel)] = "casa.numero" name="numero">
+        </mat-form-field>
+        <mat-form-field class="column1"> 
+            <input matInput placeholder="Complemento" [(ngModel)] = "casa.complemento" name="complemento">
+        </mat-form-field>
+        <mat-form-field class="column1">
+            <input matInput placeholder="Bairro" [(ngModel)] = "casa.bairro" name="bairro">
+        </mat-form-field>
+        <mat-form-field class="column1">
+            <input matInput placeholder="Cidade"  [(ngModel)] = "casa.cidade" name="cidade">
+        </mat-form-field>
+        <mat-form-field class="column1">
+            <input matInput placeholder="Estado" [(ngModel)] = "casa.uf" name="uf">
+        </mat-form-field>
+        <mat-form-field class="column"> 
+            <input matInput placeholder="Telefone" [(ngModel)] = "casa.telefone" name="telefone">
+        </mat-form-field>
+    </form>
+
+<button mat-raised-button (click)="createCasa()" color="primary">
+    Salvar
+</button>
+
+<button mat-raised-button (click)="cancelCasa()">
+    Cancelar
+</button>
