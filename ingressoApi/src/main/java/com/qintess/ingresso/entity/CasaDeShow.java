@@ -1,4 +1,4 @@
-package com.qintess.ingresso.entity;
+	package com.qintess.ingresso.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ public class CasaDeShow {
 	@Column(nullable = false)
 	private String telefone;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)    
+	@OneToMany(fetch = FetchType.EAGER)    
 	private List<Evento> listEventos = new ArrayList<>(); 
 	
 	

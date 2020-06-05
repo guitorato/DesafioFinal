@@ -44,13 +44,12 @@ public class EventoController {
 	}
 	
 	@PostMapping("/evento")
-	public List<Evento> save(@RequestBody Evento evento , CasaDeShow casaShow ) throws Exception {
+	public Evento save(@RequestBody Evento evento, CasaDeShow casa) throws Exception {
 		
-		casaRepos.findByNome(evento.getCasa().getNome());
+		casaRepos.findByNome(evento.getCasaDeShow().getNome());
 			
-		eventoRepos.save(evento);
 
-		return eventoRepos.findAll();
+		return eventoRepos.save(evento);
 	}
 		
 

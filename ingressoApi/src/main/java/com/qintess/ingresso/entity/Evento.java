@@ -51,9 +51,9 @@ public class Evento {
 	@Transient //esse campo n�o ser� persistido no hibernate
 	private String imagemEncoded;
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	@ManyToOne
 	@JoinColumn(name = "casaDeShow_id")
-	private CasaDeShow casa;
+	private CasaDeShow casaDeShow;
 	
 	@OneToMany(mappedBy = "evento")
 	private List <Compra> compras;
@@ -66,7 +66,7 @@ public class Evento {
 	public String toString() {
 		return "Evento [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", dtEvento=" + dtEvento
 				+ ", qtdIngresso=" + estoque_ingresso + ", valor=" + valor + ", imagemProd=" + Arrays.toString(imagemProd)
-				+ ", imagemEncoded=" + imagemEncoded + ", casaDeShow=" + casa.getNome() + ", compras=" + compras + "]";
+				+ ", imagemEncoded=" + imagemEncoded + ", casaDeShow=" + casaDeShow.getNome() + ", compras=" + compras + "]";
 	}
 
 
@@ -120,12 +120,12 @@ public class Evento {
 	}
 
 	
-	public CasaDeShow getCasa() {
-		return casa;
+	public CasaDeShow getCasaDeShow() {
+		return casaDeShow;
 	}
 
-	public void setCasa(CasaDeShow casa) {
-		this.casa = casa;
+	public void setCasa(CasaDeShow casaDeShow) {
+		this.casaDeShow = casaDeShow;
 	}
 
 	public List<Compra> getCompras() {

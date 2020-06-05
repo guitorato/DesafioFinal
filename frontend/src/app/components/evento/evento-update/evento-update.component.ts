@@ -36,7 +36,7 @@ export class EventoUpdateComponent implements OnInit {
     const casa = new Casa();
 
     casa.id = this.idCasa;
-    this.evento.casa = casa;
+    this.evento.casaDeShow = casa;
 
     this.eventoService.update(this.evento).subscribe(() =>{
       this.eventoService.showMessage('Evento Alterado com sucesso!')

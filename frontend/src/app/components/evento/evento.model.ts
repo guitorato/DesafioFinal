@@ -6,5 +6,6 @@ export class Evento{
     dtEvento: Date;
     estoque_ingresso: number;
     valor: number;
-    casa: Casa ;
+    imagemProd: Blob;
+    casaDeShow: Casa ;
 }

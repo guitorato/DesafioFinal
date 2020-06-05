@@ -21,7 +21,8 @@ export class EventoCreateComponent implements OnInit {
    dtEvento: null,
    estoque_ingresso: null,
    valor: null,
-   casa: null,
+   casaDeShow: null,
+   imagemProd: null
  }
 
   constructor(private eventoService: EventoService,
@@ -40,7 +41,7 @@ export class EventoCreateComponent implements OnInit {
 
     const casa = new Casa();
     casa.id = this.idCasa;
-    this.evento.casa = casa;
+    this.evento.casaDeShow = casa;
 
     this.eventoService.create(this.evento).subscribe(() =>{
       
