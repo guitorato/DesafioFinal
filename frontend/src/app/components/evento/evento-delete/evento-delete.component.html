@@ -29,15 +29,6 @@
             [(ngModel)] = "evento.estoque_ingresso" required name="estoque_ingresso" disabled>
         </mat-form-field>
        
-        
-        <mat-form-field>
-            <mat-label>Casa de Show</mat-label>
-            <mat-select [(ngModel)]="idCasa" [ngModelOptions]="{standalone: true}">
-              <mat-option [(value)]="casa.id"  name="casa" disabled>
-                {{casa.nome}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
 
     </form>
 

@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./evento-create.component.css']
 })
 export class EventoCreateComponent implements OnInit {
-  casas : Casa[]
+  
+  idCasa = 0;
+  casas: Casa[]
 
  evento : Evento = {
    nome: '',
@@ -20,7 +22,6 @@ export class EventoCreateComponent implements OnInit {
    estoque_ingresso: null,
    valor: null,
    casa: null,
-   imagemEncoded: '',
  }
 
   constructor(private eventoService: EventoService,
@@ -28,15 +29,22 @@ export class EventoCreateComponent implements OnInit {
               private casaService: CasaService) { }
 
   ngOnInit(): void {
-    this.casaService.read().subscribe(casas =>{
-      this.casas = casas 
-      console.log(casas)
-  })
+    
+    this.casaService.read().subscribe(casas => {
+
+      this.casas = casas
+    })
 }
 
   createEvento(): void{
+
+    const casa = new Casa();
+    casa.id = this.idCasa;
+    this.evento.casa = casa;
+
     this.eventoService.create(this.evento).subscribe(() =>{
       
+      console.log(this.evento)
       this.eventoService.showMessage('Evento cadastrado com sucesso!')
       this.router.navigate(['/evento'])
     })
