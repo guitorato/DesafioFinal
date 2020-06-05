@@ -23,11 +23,13 @@ export class EventoUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.casaService.read().subscribe(casas => {
+
       this.casas = casas
-    })
-    const id = this.route.snapshot.paramMap.get('id')
-    this.eventoService.readById(id).subscribe(evento =>{
-      this.evento = evento
+
+      const id = this.route.snapshot.paramMap.get('id')
+      this.eventoService.readById(id).subscribe(evento => {
+        this.evento = evento
+      })
     })
   }
 

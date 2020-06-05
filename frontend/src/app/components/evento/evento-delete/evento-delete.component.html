@@ -3,31 +3,40 @@
     <hr />
     <form>
         <mat-form-field class="column"> 
-            <input matInput placeholder="Nome" [(ngModel)] = "evento.nome" required name="nome" disabled>
+            <input matInput placeholder="Nome" [value] = "evento.nome" required name="nome" disabled>
         </mat-form-field>
 
         <mat-form-field class="example-full-width column">
             <mat-label>Descrição</mat-label>
             <input matInput #message maxlength="256" placeholder="Descrição" disabled 
-                    [(ngModel)] = "evento.descricao" required name="descricao">
+            [value] = "evento.descricao" required name="descricao">
             <mat-hint align="start"><strong>Descrição do evento</strong> </mat-hint>
             <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
         </mat-form-field>
         
         <mat-form-field class="column1"> 
-            <input type="date" matInput placeholder="Data Evento" [(ngModel)] = "evento.dtEvento" 
+            <input type="date" matInput placeholder="Data Evento" [value] = "evento.dtEvento" 
             required name="dtEvento" disabled>
         </mat-form-field>
 
         <mat-form-field class="column1"> 
-            <input type="number" matInput placeholder="Valor" [(ngModel)] = "evento.valor"
+            <input type="number" matInput placeholder="Valor" [value] = "evento.valor"
             required name="valor" disabled> 
         </mat-form-field>
 
         <mat-form-field class="column1"> 
             <input type="number" matInput placeholder="Qtd - Ingressos" 
-            [(ngModel)] = "evento.estoque_ingresso" required name="estoque_ingresso" disabled>
+            [value] = "evento.estoque_ingresso" required name="estoque_ingresso" disabled>
         </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Casa de Show</mat-label>
+            <mat-select [value]="idCasa" [ngModelOptions]="{standalone: true}" disabled>
+              <mat-option *ngFor="let casa of casas" value="{{casa.id}}"  name="casa">
+                {{casa.nome}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
        
 
     </form>

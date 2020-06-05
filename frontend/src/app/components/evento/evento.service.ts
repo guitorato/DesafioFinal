@@ -42,7 +42,7 @@ export class EventoService {
   }
 
   readById(id: string): Observable<Evento>{
-    const url = `${this.baseUrl}/${id}`
+    const url = `${this.baseUrl}${id}`
       return this.http.get<Evento>(url).pipe(
         map((obj) => obj),
         catchError(e => this.errorHandler(e))
@@ -50,7 +50,7 @@ export class EventoService {
   }
 
   update(evento : Evento): Observable<Evento>{
-    const url = `${this.baseUrl}/${evento.id}`
+    const url = `${this.baseUrl}${evento.id}`
     return this.http.put<Evento>(url, evento).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))

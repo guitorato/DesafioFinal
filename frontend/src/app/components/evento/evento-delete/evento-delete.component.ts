@@ -1,3 +1,5 @@
+import { CasaService } from './../../casa/casa.service';
+import { Casa } from './../../casa/casa.model';
 import { Evento } from './../evento.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EventoService } from './../evento.service';
@@ -10,20 +12,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventoDeleteComponent implements OnInit {
   
-  evento: Evento
+  evento: Evento;
+  idCasa = 0;
+  casas: Casa[];
 
-  constructor(private eventoService: EventoService, 
+  constructor(private casaService : CasaService,
+              private eventoService: EventoService, 
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
-    this.eventoService.readById(id).subscribe(evento => {
-      this.evento = evento
+    this.casaService.read().subscribe(casas => {
+
+      this.casas = casas
+
+      const id = this.route.snapshot.paramMap.get('id')
+      this.eventoService.readById(id).subscribe(evento => {
+        this.evento = evento
+      })
     })
   }
 
   deleteEvento(): void {
+
+    const casa = new Casa();
+
+    casa.id = this.idCasa;
+    this.evento.casaDeShow = casa;
     
     this.eventoService.delete(this.evento.id).subscribe(() => {
       this.eventoService.showMessage('Evento Removido com Sucesso')
